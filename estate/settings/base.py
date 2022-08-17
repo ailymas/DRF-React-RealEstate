@@ -41,9 +41,9 @@ THIRD_PARTY_APPS = [
     # "djcelery_email",
 ]
 LOCAL_APPS = [
-    # "apps.common",
-    # "apps.users",
-    # "apps.profiles",
+     "apps.common",
+     "apps.users",
+     "apps.profiles",
     # "apps.ratings",
     # "apps.properties",
     # "apps.enquiries"
@@ -129,10 +129,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/staticfiles/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR /"staticfiles"
 STATICFILES_DIR = []
-MEDIA_URL = "/mediafiles/"
-MEDIA_ROOT = BASE_DIR / "mediafiles"
+MEDIA_ROOT= os.path.join(os.path.dirname(BASE_DIR),'mediafiles/')
+MEDIA_URL='mediafiles/'
 
 AUTH_USER_MODEL = "users.User"
 
