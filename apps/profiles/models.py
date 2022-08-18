@@ -3,7 +3,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
-
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from apps.common.models import TimeStampedUUIDModel
 
 User = get_user_model()
@@ -64,5 +65,11 @@ class Profile(TimeStampedUUIDModel):
         verbose_name=_("Number of Reviews"), default=0, null=True, blank=True
     )
 
+    @receiver(post_save,sender=User)
+    def create_profile(sender, instance, created, **kwargs):
+        if created:
+            profile=Profile.objects.get_or_create(user=instance)
+
     def __str__(self):
         return f"{self.user.username}'s profile"
+    
