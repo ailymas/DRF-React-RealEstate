@@ -26,8 +26,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path("api/v1/profile/", include("apps.profiles.urls")),
     path('swagger/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
-    path('api/api.json/', schema_view.without_ui(cache_timeout=0),name='schema-swagger-ui')
-    # path("api/v1/properties/", include("apps.properties.urls")),
-    # path("api/v1/ratings/", include("apps.ratings.urls")),
-    # path("api/v1/enquiries/", include("apps.enquiries.urls")),
+    path('api/api.json/', schema_view.without_ui(cache_timeout=0),name='schema-swagger-ui'),
+    #path("api/v1/properties/", include("apps.properties.urls")),
+    path("api/v1/ratings/", include("apps.rating.urls")),
+    #path("api/v1/enquiries/", include("apps.enquiries.urls")),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
