@@ -24,10 +24,10 @@ urlpatterns = [
     path("api/v1/auth/", include("djoser.urls")),
     path("api/v1/auth/", include("djoser.urls.jwt")),
     path('api-auth/', include('rest_framework.urls')),
-    path("api/v1/profile/", include("apps.profiles.urls")),
+    path("api/profile/", include("apps.profiles.urls")),
     path('swagger/', schema_view.with_ui('swagger',cache_timeout=0), name='schema-swagger-ui'),
     path('api/api.json/', schema_view.without_ui(cache_timeout=0),name='schema-swagger-ui'),
     path("api/properties/", include("apps.properties.urls")),
     path("api/ratings/", include("apps.rating.urls")),
-    path("api/v1/enquiries/", include("apps.enquiries.urls")),
+    path("api/enquiries/", include("apps.enquiries.urls")),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
