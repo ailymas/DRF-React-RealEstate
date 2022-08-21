@@ -30,4 +30,4 @@ urlpatterns = [
     path("api/properties/", include("apps.properties.urls")),
     path("api/ratings/", include("apps.rating.urls")),
     path("api/enquiries/", include("apps.enquiries.urls")),
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+]# +static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
