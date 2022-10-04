@@ -18,7 +18,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,8 +38,9 @@ THIRD_PARTY_APPS = [
     "phonenumber_field",
     "djoser",
     "rest_framework_simplejwt",
-    "drf_yasg"
+    "drf_yasg",
     # "djcelery_email",
+    "corsheaders"
 ]
 LOCAL_APPS = [
      "apps.common",
@@ -53,6 +54,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -183,6 +185,8 @@ DJOSER = {
         "user_delete": "djoser.serializers.UserDeleteSerializer",
     },
 }
+# CORS_ALLOWED_ORIGINS = []
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
